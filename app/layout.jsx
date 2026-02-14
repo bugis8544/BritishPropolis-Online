@@ -1,37 +1,33 @@
-import "./globals.css";
-// PERUBAHAN PENTING: Gunakan titik satu (./) karena folder ada di sebelah file ini
-import Navbar from "./components/Navbar.jsx";
-import Footer from "./components/Footer.jsx";
-import { WEB_CONFIG } from "./data/content.jsx";
-import { MessageCircle } from "lucide-react";
-
 export const metadata = {
-  title: WEB_CONFIG.name,
-  description: WEB_CONFIG.description,
+  metadataBase: new URL("https://britishpropolisonline.id"), // Ganti domain asli Anda
+  title: {
+    default: "British Propolis Online | Distributor Resmi Terpercaya",
+    template: "%s | British Propolis Online",
+  },
+  description:
+    "Pusat belanja British Propolis dan Belgie Skincare Original. Garansi uang kembali, konsultasi gratis, dan pengiriman cepat seluruh Indonesia.",
+  keywords: [
+    "british propolis",
+    "belgie skincare",
+    "propolis inggris",
+    "agen resmi british propolis",
+    "obat herbal",
+  ],
+  authors: [{ name: "Tim BP Online" }],
+  openGraph: {
+    title: "British Propolis Online - Solusi Kesehatan Keluarga",
+    description:
+      "Dapatkan produk asli British Propolis & Belgie Skincare di sini.",
+    url: "https://britishpropolisonline.id",
+    siteName: "British Propolis Online",
+    images: [
+      {
+        url: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=1200", // Ganti dengan foto produk asli Anda nanti
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "id_ID",
+    type: "website",
+  },
 };
-
-export default function RootLayout({ children }) {
-  return (
-    <html lang="id">
-      <body className="antialiased text-zinc-900 bg-white">
-        <Navbar />
-        <main className="min-h-screen relative z-10">{children}</main>
-        <Footer />
-
-        <div className="fixed bottom-6 right-6 z-50">
-          <a
-            href={`https://wa.me/${WEB_CONFIG.contactWA}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 pl-6 pr-2 py-2 bg-[#25D366] text-white font-bold rounded-full shadow-2xl"
-          >
-            <span className="text-xs uppercase tracking-widest">Chat WA</span>
-            <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-              <MessageCircle size={20} />
-            </div>
-          </a>
-        </div>
-      </body>
-    </html>
-  );
-}
